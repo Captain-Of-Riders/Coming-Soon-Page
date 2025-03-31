@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Captain of Riders - Coming Soon</title>
+  <style>
+    /* Root Variables */
+    :root {
+      --primary: #f05a28;
+      --primary-dark: #c4461f;
+      --secondary: #2c3e50;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --gray: #6c757d;
+      --gray-light: #e9ecef;
+    }
+    
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+    
+    /* Header */
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      transition: background-color 0.3s;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 40px;
+    }
+    
+    .logo h1 {
+      color: white;
+      margin-left: 0.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .nav-cta {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    
+    .nav-cta:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./hero.webp');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 1rem;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .primary-cta {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    
+    .primary-cta:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .secondary-cta {
+      background-color: transparent;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid white;
+      transition: background-color 0.3s;
+    }
+    
+    .secondary-cta:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 5rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h3 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+    
+    .section-title p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .feature-card {
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .feature-icon {
+      background-color: rgba(240, 90, 40, 0.1);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-icon i {
+      font-size: 1.75rem;
+      color: var(--primary);
+    }
+    
+    .feature-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    
+    /* Banner Section */
+    .banner {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/id/335/1600/900');
+      background-size: cover;
+      background-position: center;
+      padding: 5rem 1rem;
+      color: white;
+      text-align: center;
+    }
+    
+    .banner-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .banner h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .banner p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    
+    /* Newsletter Section */
+    .newsletter {
+      padding: 5rem 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .newsletter h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    
+    .newsletter p {
+      margin-bottom: 2rem;
+      color: var(--gray);
+    }
+    
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      min-width: 250px;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--gray-light);
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    
+    .newsletter-form button {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    
+    .newsletter-form button:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 3rem 1rem 1rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-column h4 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .footer-column h4::after {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary);
+    }
+    
+    .social-link i {
+      font-size: 1.25rem;
+      color: white;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Countdown Timer */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .countdown-item {
+      text-align: center;
+    }
+    
+    .countdown-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 1rem;
+      min-width: 80px;
+      display: inline-block;
+    }
+    
+    .countdown-label {
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.25rem;
+      }
+      
+      .countdown {
+        gap: 0.75rem;
+      }
+      
+      .countdown-number {
+        font-size: 1.75rem;
+        min-width: 60px;
+        padding: 0.75rem;
+      }
+      
+      .section-title h3, .banner h3 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo h1 {
+        display: none;
+      }
+      
+      .countdown-number {
+        font-size: 1.5rem;
+        min-width: 50px;
+        padding: 0.5rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="./logo.png" alt="COR Logo">
+        <h1>Captain of Riders</h1>
+      </div>
+      <a href="#notify" class="nav-cta">Get Notified</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>COR</h2>
+      <hr>
+      <h2>Ride like a Sport - Tour like an Adventure</h2>
+      <p>Discover routes, manage group rides, track expenses and connect with fellow riders - all in one app. COR is coming soon with a the app solely built for riders. Whether you're an adventurer, a group ride leader, or a solo explorer, COR helps you experience road trips like never before.</p>
+      
+      <!-- Countdown Timer -->
+      <div class="countdown">
+        <div class="countdown-item">
+          <div class="countdown-number" id="days">00</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="hours">00</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="minutes">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="seconds">00</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+      
+      <div class="cta-group">
+        <a href="#notify" class="primary-cta">Get Early Access</a>
+        <a href="#features" class="secondary-cta">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="section-title">
+      <h3>What Makes COR Special</h3>
+      <p>Discover the powerful features that will elevate your motorcycle touring experience.</p>
+    </div>
+    
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-route"></i>
+        </div>
+        <h4>Route Planning & Discovery</h4>
+        <p>Discover scenic routes customised to your preferences or create custom routes with interactive checkpoints. Access popular destinations recommended by fellow riders.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h4>Group Ride Management</h4>
+        <p>Create and join group rides, assign roles, and stay connected with in-app messaging. Track real-time locations of group members during rides.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-wallet"></i>
+        </div>
+        <h4>Expense Tracking</h4>
+        <p>Track shared and personal expenses, categorize them by type, and split costs for group rides. Generate detailed expense reports after your journey.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-medkit"></i>
+        </div>
+        <h4>Emergency Assistance</h4>
+        <p>One-tap SOS feature, roadside assistance contacts, and automatic accident detection to keep you safe during your adventures.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h4>Ride Analytics</h4>
+        <p>Track routes, speed, distance, and riding duration. View detailed post-ride statistics and track your cumulative achievements.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h4>Rider Community</h4>
+        <p>Connect with like-minded riders, share routes and reviews, join challenges, and participate in local events and meetups.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Section -->
+  <section class="banner">
+    <div class="banner-content">
+      <h3> Ride like a Sport, Tour like an Adventure</h3>
+      <p>Discover the thrill of long-distance motorcycle touring reimagined as an adventure sport. Whether you're gearing up for your first long-distance ride or your hundredth, Captain of Riders has something for everyone.</p>
+      <a href="#notify" class="primary-cta">Join the Waitlist</a>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter" id="notify">
+    <h3>Be the First to Know</h3>
+    <p>Sign up for our newsletter to receive exclusive early access and updates about Captain of Riders. No spam, just the important stuff.</p>
+    
+    <form class="newsletter-form">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Get Notified</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>Captain of Riders</h4>
+        <p>At Captain of Riders, our mission is to transform motorcycle touring into a real-life game where every ride is an adventure, every destination an achievement, and every rider part of an extraordinary community.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#notify">Get Notified</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Contact Us</h4>
+        <ul class="footer-links">
+          <li><i class="fas fa-envelope"></i> info@captainofriders.com</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2025 Captain of Riders. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Set the launch date (adjust as needed)
+    const launchDate = new Date('July 1, 2025 00:00:00').getTime();
+    
+    // Update countdown timer every second
+    const countdown = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+      
+      // Calculations for days, hours, minutes, and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Display results
+      document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+      document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+      
+      // If countdown is over
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById("days").innerHTML = "00";
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
+      }
+    }, 1000);
+    
+    // Change header background on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+      } else {
+        header.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+      }
+    });
+  </script>
+</body>
+</html>
