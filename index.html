@@ -89,7 +89,7 @@
       scroll-behavior: smooth;
     }
     .hero-bg {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('banner.webp');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.captainofriders.com/banner.webp');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -100,15 +100,50 @@
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
+
     @media screen and (max-width: 768px) {
       .hero-bg {
         background-attachment: scroll;
-        padding-top: 7rem!important;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero.webp')!important;
+
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.captainofriders.com/hero.webp')!important;
 
       }
       
     }
+
+    section[id] {
+  scroll-margin-top: 70px; /* Fallback for browsers that don't support scroll-margin */
+}
+
+@media screen and (max-width: 768px) {
+  .hero-bg {
+    padding-top: 90px !important; /* Override the inline style */
+  }
+  
+  section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  /* Fix for heading being too close to top on mobile */
+  section > .container > div:first-child {
+    margin-top: 18px;
+  }
+  
+  /* Fix for the countdown section padding */
+  section.bg-black.py-12 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* Fix sticky nav on iOS devices */
+@supports (-webkit-touch-callout: none) {
+  nav {
+    position: sticky;
+    top: 0;
+  }
+}
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -116,7 +151,7 @@
   <nav class="bg-black bg-opacity-90 text-white fixed w-full z-50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
 <div class="flex items-center space-x-2">
-  <img src="logo2w.svg" alt="Captain of Riders Logo" class="h-12 w-12" />
+  <img src="https://www.captainofriders.com/logo2w.svg" alt="Captain of Riders Logo" class="h-12 w-12" />
   <span class="font-bold text-xl tracking-tight">COR</span>
 </div>
       <div class="hidden md:flex space-x-8">
@@ -133,7 +168,7 @@
   </nav>
 
 <!-- Hero Section -->
-<header class="hero-bg text-white pt-28 pb-20 px-4 md:pt-40 md:pb-32 relative" style="padding-top: 49vh!important;">
+<header class="hero-bg text-white pt-25 pb-20 px-4 md:pt-30 md:pb-32 relative" style="padding-top: 35vh!important;">
   <!-- Blur overlay that changes opacity on scroll -->
   <div id="blurOverlay" class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300" style="backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);"></div>
   <div class="container mx-auto text-center relative z-10">
